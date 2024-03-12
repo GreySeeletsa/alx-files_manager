@@ -8,7 +8,7 @@ class DBClient {
   /**
    * Creates a new DBClient instance
    */
-  constructor() {
+  constructor () {
     envLoader();
     const host = process.env.DB_HOST || 'localhost';
     const port = process.env.DB_PORT || 27017;
@@ -22,35 +22,35 @@ class DBClient {
   /**
    * Checks if this client's connection to the MongoDB server is successful
    */
-  isAlive() {
+  isAlive () {
     return this.client.isConnected();
   }
 
   /**
    * Retrieves the number of users in the database
    */
-  async nbUsers() {
+  async nbUsers () {
     return this.client.db().collection('users').countDocuments();
   }
 
   /**
    * Retrieves the number of files in the database
    */
-  async nbFiles() {
+  async nbFiles () {
     return this.client.db().collection('files').countDocuments();
   }
 
   /**
    * Retrieves a reference to the `users` collection
    */
-  async usersCollection() {
+  async usersCollection () {
     return this.client.db().collection('users');
   }
 
   /**
    * Retrieves a reference to the `files` collection
    */
-  async filesCollection() {
+  async filesCollection () {
     return this.client.db().collection('files');
   }
 }
